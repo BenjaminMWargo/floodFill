@@ -22,16 +22,14 @@ public class recursion{
         return x;
     }
     public static Integer countAround(String k,Integer count, Map <String, Boolean> data, Map <String, Boolean> history){
-        //Exit condition
+        //Exit if the node is not on the list of filled or has been added to history
         if (!(data.containsKey(k))|history.containsKey(k)){
-            //Exit if the node is not on the list of filled or has been added to history
             return count;
         }
-        //System.out.print(k +"|");
+        //Divide up string into int coords
         String[] parts = k.split(",");
         Integer x = Integer.parseInt(parts[0]);
         Integer y = Integer.parseInt(parts[1]);
-        //System.out.print("x:"+x+"y:" +y);
         //Add current node to history
         history.put(k, true);
         //Count the current node
@@ -51,7 +49,6 @@ public class recursion{
         return count;
     }
     public static void main(String[] args) {
-       // System.out.print("hi");
        Map <String, Boolean> history = new HashMap<>();
        Map <String, Boolean> data = new HashMap<>();
        Integer max,count;
@@ -60,7 +57,6 @@ public class recursion{
        for (String k:data.keySet()){
            count = 0;
            count = countAround(k,count,data,history);
-           //System.out.println("Count:" + count);
            if (count >max){
                max = count;
            }
