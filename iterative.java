@@ -22,9 +22,9 @@ public static void main(String[] args){
         x = Integer.parseInt(parts[0]);
         y = Integer.parseInt(parts[1]);
         //Put 4 sides to queue
-        queue.push(x+1+","+y);
+        queue.push((x+1)+","+y);
         queue.push((x-1)+","+y);
-        queue.push(x+","+y+1);
+        queue.push(x+","+(y+1));
         queue.push(x+","+(y-1));
         while ((s=queue.poll())!=null){
             if (history.containsKey(s)|data.get(s)!=data.get(k)){

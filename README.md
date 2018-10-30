@@ -23,6 +23,10 @@ Connected means touching from the top,bottom,left or right.
 
 
 
+Resources-
+https://www.dailycodingproblem.com - Daily coding problem newsletter, questions are free solutions cost money
+https://leetcode.com/
+
 
 Sources -
 TechLead - An ex-Senior Software Engineer at Google. Channel is a mix of half advice for new programmers and half sarcasm.
