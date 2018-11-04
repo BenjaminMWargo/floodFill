@@ -1,11 +1,11 @@
 import random
 import time
 import sys
-f = open('smalldata.txt','w')
+f = open('data.txt','w')
 s= ''
 print("This will take awhile.")
-for i in range(0,100):
-    for j in range (0,100):
+for i in range(0,1000):
+    for j in range (0,1000):
         x = random.randint(0,2)
         s += (str(i)+","+ str(j) + " " + str(x) + "\n")
     #time.sleep(1)
