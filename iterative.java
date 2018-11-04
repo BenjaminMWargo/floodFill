@@ -1,3 +1,7 @@
+/*You are given a grid of undefined length and width containing Integers.
+Find and print the size and value of the largest collection of connected squares with the same Integer.
+Connected means touching from the top,bottom,left or right.*/
+
 import java.util.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -21,7 +25,6 @@ public class iterative{
          }
         bufferedReader.close();
        } catch(Exception e){System.out.print("read error");}
-       startTime = System.currentTimeMillis();
         return x;
     }
 public static void main(String[] args){
@@ -29,6 +32,7 @@ public static void main(String[] args){
     Map <String, Integer> data = new HashMap<>();
     Deque <String> queue = new LinkedList<String>();
     data = getData();
+    startTime = System.currentTimeMillis();
     int count,max,maxVal;
     String s;
     String[] parts;

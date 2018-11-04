@@ -1,3 +1,7 @@
+/*You are given a grid of undefined length and width containing Integers.
+Find and print the size and value of the largest collection of connected squares with the same Integer.
+Connected means touching from the top,bottom,left or right.*/
+
 import java.util.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -5,11 +9,11 @@ import java.io.IOException;
 import java.io.FileWriter;
 
 public class recursion2{
-    public static long startTime;
+    public static long startTime; //Used for tracking performance
     public static  Map <String, Integer> getData(){
+        //Store all data from a file into a map
         Map <String, Integer> x = new HashMap<>();
-        
-        try{  
+          try{  
         FileReader fileReader = new FileReader("data.txt");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
        
@@ -21,12 +25,12 @@ public class recursion2{
          }
         bufferedReader.close();
        } catch(Exception e){System.out.print("read error");}
-        startTime = System.currentTimeMillis();
+        
         return x;
     }
     public static Integer countAround(String k,Integer target,Integer count, Map <String, Integer> data, Map <String, Integer> history){
-        //Exit if the node is not on the list of filled or has been added to history
-        if (!(data.containsKey(k))|history.containsKey(k)|(data.get(k)!=target)){
+        //Exit if the value does not match or it has been visited before
+        if (history.containsKey(k)|(data.get(k)!=target)){
             return count;
         }
         //Divide up string into int coords
@@ -52,12 +56,15 @@ public class recursion2{
         return count;
     }
     public static void main(String[] args) {
+       //Keep 2 maps, one for all the data and one for visited nodes. This prevents backtracking and recounting
        Map <String, Integer> history = new HashMap<>();
        Map <String, Integer> data = new HashMap<>();
        Integer max,count,maxColor;
        max = 0;
        maxColor = 0;
        data = getData();
+       startTime = System.currentTimeMillis();
+       //countAround for each string in the data map
        for (String k:data.keySet()){
            count = 0;
            count = countAround(k,data.get(k),count,data,history);
