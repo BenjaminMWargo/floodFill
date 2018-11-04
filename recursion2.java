@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.FileWriter;
 
 public class recursion2{
+    public static long startTime;
     public static  Map <String, Integer> getData(){
         Map <String, Integer> x = new HashMap<>();
         
@@ -20,7 +21,7 @@ public class recursion2{
          }
         bufferedReader.close();
        } catch(Exception e){System.out.print("read error");}
-
+        startTime = System.currentTimeMillis();
         return x;
     }
     public static Integer countAround(String k,Integer target,Integer count, Map <String, Integer> data, Map <String, Integer> history){
@@ -66,5 +67,6 @@ public class recursion2{
            }
        }
        System.out.println("Max is: " + max + " With value:" + maxColor);
+       System.out.println("Search took:" + (System.currentTimeMillis()-startTime) + "ms");
     }
 }
