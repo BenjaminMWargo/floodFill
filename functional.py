@@ -1,7 +1,12 @@
+#Given cons() which makes a pair, write car() which returns the first element and cdr() that 
+#returns the last element
+
+
 def cons(a, b):
     def pair(f):
         return f(a, b)
     return pair
+#Answer
 def car(pair):
     x= pair(lambda a,b:(a,b))
     return x[0]
